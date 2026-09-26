@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio SISR — Lenny GASNIER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cssbrouillon.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Lenny GASNIER<span>.sisr</span></div>
+    <ul>
+      <li><button class="tab active" data-view="accueil">Accueil</button></li>
+      <li><button class="tab" data-view="aps">APs</button></li>
+      <li><button class="tab" data-view="stages">Stages</button></li>
+      <li><button class="tab" data-view="cv">CV</button></li>
+      <li><button class="tab" data-view="veille">Veille</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ACCUEIL -->
+  <section id="view-accueil" class="view active">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow mono">BTS SIO — option SISR</div>
+        <h1>Lenny GASNIER<br><em>Administration systèmes &amp; réseaux.</em></h1>
+        <p class="lead">Étudiant en BTS Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux. Ce portfolio regroupe les Activités Professionnelles (AP), les stages, le CV et la veille technologique réalisés durant les deux années de formation.</p>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre><span class="k">$</span> whoami
+<span class="v">Lenny GASNIER</span>
+<span class="k">$</span> cat formation.txt
+BTS SIO — option SISR
+Promotion <span class="v">2025 – 2027</span>
+<span class="k">$</span> ls portfolio/
+APs/  Stages/  CV/  Veille/</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- APs -->
+  <section id="view-aps" class="view">
+    <div id="aps-list">
+      <div class="section-head">
+        <h2>Activités Professionnelles</h2>
+        <span class="count mono" id="aps-count"></span>
+      </div>
+      <div class="tag-grid" id="aps-grid"></div>
+    </div>
+    <div id="aps-detail" class="detail">
+      <button class="back-btn" data-back="aps-list">← Retour aux APs</button>
+      <div id="aps-detail-content"></div>
+    </div>
+  </section>
+
+  <!-- STAGES -->
+  <section id="view-stages" class="view">
+    <div id="stages-list">
+      <div class="section-head">
+        <h2>Stages</h2>
+        <span class="count mono" id="stages-count"></span>
+      </div>
+      <div class="tag-grid" id="stages-grid"></div>
+    </div>
+    <div id="stages-detail" class="detail">
+      <button class="back-btn" data-back="stages-list">← Retour aux stages</button>
+      <div id="stages-detail-content"></div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="view-cv" class="view">
+    <div class="section-head"><h2>CV</h2></div>
+    <div class="placeholder-box">
+      Emplacement réservé pour le CV.<br>
+      <a href="docs/cv_lenny_gasnier.pdf" download>Télécharger le CV (PDF)</a>
+    </div>
+  </section>
+
+  <!-- VEILLE -->
+  <section id="view-veille" class="view">
+    <div class="section-head">
+      <h2>Veille technologique</h2>
+      <span class="count mono">thèmes à compléter</span>
+    </div>
+    <div class="veille-grid">
+      <div class="veille-card"><h3>Thème 1 — à définir</h3></div>
+      <div class="veille-card"><h3>Thème 2 — à définir</h3></div>
+      <div class="veille-card"><h3>Thème 3 — à définir</h3></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Portfolio BTS SIO SISR — Lenny GASNIER</span>
+  </div>
+</footer>
+
+<script src="jsbrouillon.js"></script>
+</body>
+</html>
