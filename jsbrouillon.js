@@ -16,7 +16,7 @@ const aps = [
     description: "Comparaison de plusieurs CMS (Drupal, Google Sites, e-monsite) et de solutions d'hébergement (InfinityFree, hébergement intégré Google Sites, hébergement intégré e-monsite) afin de choisir la solution la plus adaptée à un projet associatif. Maquettage et réalisation d'un site vitrine pédagogique pour le fanzine culturel « Le Bidul ».",
     outils: ["Drupal", "Google Sites", "e-monsite", "InfinityFree"],
     competences: ["Développer la présence en ligne de l'organisation", "Répondre aux incidents et aux demandes d'assistance et d'évolution", "Mettre à disposition des utilisateurs un service informatique", "Gérer le patrimoine informatique"],
-    docTechnique: `<a href="DOCENPDF/ap2-comparatif.pdf" target="_blank" rel="noopener noreferrer">📄 Diaporama comparatif AP2 (PDF)</a>`,
+    docTechnique: `<a href="docenpdf/ap2-comparatif.pdf" target="_blank" rel="noopener noreferrer">📄 Diaporama comparatif AP2 (PDF)</a>`,
     production: `<a href="https://le-bidul.e-monsite.com/" target="_blank" rel="noopener noreferrer">🌐 Consulter le site « Le Bidul » en ligne</a>`,
     mode: "À confirmer — non précisé dans le document source"
   },
@@ -26,7 +26,7 @@ const aps = [
     description: "Déploiement d'une plateforme Moodle pour la société FKV sur un serveur virtuel Ubuntu : installation et configuration d'Apache, MariaDB et PHP, installation de Moodle et de sa base de données, mise en place d'une solution de sauvegarde sur NAS (OpenMediaVault) via un partage réseau, script de sauvegarde automatisé par tâche planifiée (cron). Rédaction d'un devis matériel pour le client (onduleur, stockage SSD/HDD, NAS Synology, serveur HPE ProLiant, licence Moodle).",
     outils: ["Ubuntu Server", "Apache", "MariaDB", "PHP", "Moodle", "OpenMediaVault (NAS)", "SSH/Putty", "Cron"],
     competences: ["Gérer le patrimoine informatique", "Travailler en mode projet", "Mettre à disposition des utilisateurs un service informatique", "Organiser son développement professionnel"],
-    docTechnique: `<a href="DOCENPDF/ap3-doc-admin.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Administrateur (PDF)</a><br><a href="DOCENPDF/ap3-doc-apprenants.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Apprenants (PDF)</a><br><a href="DOCENPDF/ap3-doc-enseignants.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Enseignants (PDF)</a><br><a href="DOCENPDF/ap3-devis-client.pdf" target="_blank" rel="noopener noreferrer">📊 Devis matériel client (PDF)</a><br><a href="DOCENPDF/ap3-presentation.pdf" target="_blank" rel="noopener noreferrer">📊 Présentation du projet (PDF)</a>`,
+    docTechnique: `<a href="docenpdf/ap3-doc-admin.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Administrateur (PDF)</a><br><a href="docenpdf/ap3-doc-apprenants.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Apprenants (PDF)</a><br><a href="docenpdf/ap3-doc-enseignants.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation Enseignants (PDF)</a><br><a href="docenpdf/ap3-devis-client.pdf" target="_blank" rel="noopener noreferrer">📊 Devis matériel client (PDF)</a><br><a href="docenpdf/ap3-presentation.pdf" target="_blank" rel="noopener noreferrer">📊 Présentation du projet (PDF)</a>`,
     production: "Plateforme Moodle hébergée sur serveur local",
     mode: "En binôme — Lenny Gasnier &amp; Julien Hubert"
   },
@@ -36,7 +36,7 @@ const aps = [
     description: "Évolution de la plateforme e-learning vers une architecture à 3 tiers sécurisée : segmentation du réseau en 4 zones (WAN, LAN, DMZ publique pour le serveur web, DMZ privée pour le serveur de base de données) via un pare-feu pfSense, séparation des rôles Apache/MariaDB sur deux serveurs distincts, rédaction des règles de filtrage entre zones, configuration du NAT pour l'accès externe, et campagne de tests de sécurité (vérifications d'accès autorisés/bloqués, consultation des journaux pfSense).",
     outils: ["pfSense", "Ubuntu Server", "Apache", "MariaDB", "Netplan", "UFW"],
     competences: ["Gérer le patrimoine informatique", "Travailler en mode projet", "Mettre à disposition des utilisateurs un service informatique", "Organiser son développement professionnel"],
-    docTechnique: `<a href="DOCENPDF/ap4-securisation-pfsense.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation pfSense & Sécurisation (PDF)</a><br><a href="DOCENPDF/ap4-commandes.pdf" target="_blank" rel="noopener noreferrer">📄 Aide-mémoire des commandes (PDF)</a>`,
+    docTechnique: `<a href="docenpdf/ap4-securisation-pfsense.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation pfSense & Sécurisation (PDF)</a><br><a href="docenpdf/ap4-commandes.pdf" target="_blank" rel="noopener noreferrer">📄 Aide-mémoire des commandes (PDF)</a>`,
     production: "Infrastructure virtuelle 3 tiers sous pfSense",
     mode: "En binôme — Lenny Gasnier &amp; Julien Hubert"
   },
@@ -50,7 +50,7 @@ const stages = [
     description: "Stage au sein de MicroInfoExpert (groupe Stelogy), société de maintenance informatique spécialisée dans le secteur médical (cabinets médicaux, dentaires...). Support technique à distance et sur site : prise en main à distance (TeamViewer, AnyDesk), gestion d'antivirus en parc (G Data), sauvegardes (Veeam Server/Agent), virtualisation (Hyper-V — serveurs AD, TSE, APP). Préparation et masterisation de postes (déploiement Windows 11 via PXE/iVentoy, licences, mises à jour). Interventions terrain : câblage et rangement de baies de brassage, installation de switches (dont PoE), raccordement fibre optique (ONT), bornes Wi-Fi Unifi, imprimantes, NAS Synology et boîtiers de sauvegarde (RAID), configuration d'un routeur FortiNet, mise en place d'un accès VPN. Rédaction de comptes rendus d'intervention pour les clients.",
     outils: ["TeamViewer", "AnyDesk", "Veeam", "Hyper-V", "G Data", "iVentoy / PXE", "NAS Synology", "Unifi", "FortiNet"],
     competences: ["Support technique à distance et sur site", "Sauvegarde et virtualisation", "Déploiement et masterisation de postes", "Câblage et infrastructure réseau (baies, switches, fibre)", "Rédaction de comptes rendus d'intervention"],
-    docTechnique: `<a href="DOCENPDF/stage1-journal-de-bord.pdf" target="_blank" rel="noopener noreferrer">📄 Journal de bord détaillé (PDF)</a>`,
+    docTechnique: `<a href="docenpdf/stage1-journal-de-bord.pdf" target="_blank" rel="noopener noreferrer">📄 Journal de bord détaillé (PDF)</a>`,
     production: "Données confidentielles d'entreprise",
     mode: "En entreprise, en autonomie progressive avec accompagnement d'un tuteur ; certaines missions réalisées en binôme avec un technicien"
   },
