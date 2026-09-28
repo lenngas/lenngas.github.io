@@ -58,86 +58,49 @@ const stages = [
 ];
 
 // ---------- RENDU ----------
-function renderGrid(items, gridEl, countEl, kind){
-  gridEl.innerHTML = "";
-  let filled = items.filter(i => i).length;
-  countEl.textContent = filled + " / " + items.length + " complétées";
-  items.forEach((item, i) => {
-    const card = document.createElement("div");
-    if(item){
-      card.className = "tag-card";
-      card.innerHTML = `<div class="num">${kind === 'ap' ? 'AP' : 'STAGE'} ${i+1}</div>
-        <h3>${item.titre}</h3>
-        <div class="period">${item.periode}</div>`;
-      card.onclick = () => showDetail(kind, i);
-    } else {
-      card.className = "tag-card empty";
-      card.innerHTML = `<div class="num">${kind === 'ap' ? 'AP' : 'STAGE'} ${i+1}</div>
-        <h3>À compléter</h3>
-        <div class="period">—</div>`;
-    }
-    gridEl.appendChild(card);
-  });
+const kinds = { aps: { data: aps, label: "AP" }, stages: { data: stages, label: "Stage" } };
+const list = k => kinds[k].data.map((d, i) => d && { ...d, i }).filter(Boolean);
+const $ = id => document.getElementById(id);
+
+function detailHTML(k, d, pos, all) {
+  const prev = all[pos - 1], next = all[pos + 1];
+  return `<span class="tag">${kinds[k].label} ${d.i + 1}</span>
+    <h3>${d.titre}</h3>
+    <p class="when">${d.periode}</p>
+    <div class="blk"><h4>Ce que j'ai fait</h4><p>${d.description}</p></div>
+    <div class="blk"><h4>Outils utilisés</h4><ul class="chips">${d.outils.map(o => `<li>${o}</li>`).join("")}</ul></div>
+    <div class="blk"><h4>Compétences travaillées</h4><ul class="skills">${d.competences.map(c => `<li>${c}</li>`).join("")}</ul></div>
+    <div class="blk"><h4>Documents</h4><p class="docs">${d.docTechnique}</p></div>
+    <div class="blk"><h4>Réalisation</h4><p>${d.production}</p></div>
+    <div class="blk"><h4>Mode de travail</h4><p>${d.mode}</p></div>
+    <div class="pager"><span>${prev ? `<a href="#${k}/${prev.i}">← ${kinds[k].label} ${prev.i + 1}</a>` : ""}</span><span>${next ? `<a href="#${k}/${next.i}">${kinds[k].label} ${next.i + 1} →</a>` : ""}</span></div>`;
 }
 
-function showDetail(kind, i){
-  const data = (kind === 'ap' ? aps : stages)[i];
-  if(!data) return;
-  const listEl = document.getElementById(kind + "s-list");
-  const detailEl = document.getElementById(kind + "s-detail");
-  const contentEl = document.getElementById(kind + "s-detail-content");
-  contentEl.innerHTML = `
-    <div class="detail-card">
-      2>${data.titre}</h2>
-      <div class="meta mono">${data.periode}</div>
-      <div class="detail-block">
-        <h4>Description</h4>
-        <p>${data.description}</p>
-      </div>
-      <div class="detail-grid2">
-        <div class="detail-block">
-          <h4>Outils utilisés</h4>
-          <div class="stack-row">${data.outils.map(o => `<span>${o}</span>`).join("")}</div>
-        </div>
-        <div class="detail-block">
-          <h4>Compétences travaillées</h4>
-          <div class="stack-row">${data.competences.map(c => `<span>${c}</span>`).join("")}</div>
-        </div>
-      </div>
-      <div class="detail-block">
-        <h4>Documentation technique</h4>
-        <p>${data.docTechnique}</p>
-      </div>
-      <div class="detail-block">
-        <h4>Production en ligne / captures d'écran</h4>
-        <p>${data.production}</p>
-      </div>
-      <div class="detail-block">
-        <h4>Mode de travail</h4>
-        <p>${data.mode}</p>
-      </div>
-    </div>`;
-  listEl.style.display = "none";
-  detailEl.classList.add("active");
+function showList(k, n) {
+  const all = list(k);
+  const pos = Math.max(0, all.findIndex(x => String(x.i) === n));
+  $(k + "-list").innerHTML = all.map((d, p) =>
+    `<li><a href="#${k}/${d.i}" ${p === pos ? 'aria-current="true"' : ""}><b>${kinds[k].label} ${d.i + 1} : ${d.titre}</b><small>${d.periode}</small></a></li>`).join("");
+  $(k + "-detail").innerHTML = detailHTML(k, all[pos], pos, all);
 }
 
-document.querySelectorAll("[data-back]").forEach(btn => {
-  btn.onclick = () => {
-    const listId = btn.dataset.back;
-    document.getElementById(listId).style.display = "";
-    document.getElementById(listId.replace("-list","-detail")).classList.remove("active");
-  };
-});
+function buildRoute() {
+  const steps = [...list("aps").map(d => ["aps", d]), ...list("stages").map(d => ["stages", d])];
+  $("route").innerHTML = steps.map(([k, d]) =>
+    `<li class="${k === "stages" ? "stage" : ""}"><a href="#${k}/${d.i}">${kinds[k].label} ${d.i + 1} : ${d.titre}</a><small>${d.periode}</small></li>`).join("");
+}
 
-// ---------- NAVIGATION ----------
-document.querySelectorAll(".tab").forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-    document.getElementById("view-" + btn.dataset.view).classList.add("active");
-  };
-});
+// ---------- NAVIGATION (l'adresse # permet de partager ou d'actualiser une page précise) ----------
+function route() {
+  const [v, n] = location.hash.slice(1).split("/");
+  const view = $("view-" + v) ? v : "accueil";
+  document.querySelectorAll(".view").forEach(s => s.classList.toggle("on", s.id === "view-" + view));
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.view === view));
+  if (kinds[view]) showList(view, n);
+  if (n !== undefined && window.matchMedia("(max-width:860px)").matches) $(view + "-detail").scrollIntoView();
+  else window.scrollTo(0, 0);
+}
 
-renderGrid(aps, document.getElementById("aps-grid"), document.getElementById("aps-count"), "ap");
-renderGrid(stages, document.getElementById("stages-grid"), document.getElementById("stages-count"), "stage");
+buildRoute();
+window.addEventListener("hashchange", route);
+route();
