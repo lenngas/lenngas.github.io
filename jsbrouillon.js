@@ -8,7 +8,7 @@ const aps = [
     competences: ["Gérer le patrimoine informatique", "Répondre aux incidents et aux demandes d'assistance et d'évolution", "Organiser son développement professionnel"],
     docTechnique: `<a href="docenpdf/ap1-documentation.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation technique AP1 (PDF)</a>`,
     production: "Environnement local XAMPP",
-    mode: "À confirmer — non précisé dans le document source"
+    mode: "Binôme"
   },
   {
     titre: "Étude comparative de CMS/hébergeurs — site vitrine « Le Bidul »",
@@ -18,7 +18,7 @@ const aps = [
     competences: ["Développer la présence en ligne de l'organisation", "Répondre aux incidents et aux demandes d'assistance et d'évolution", "Mettre à disposition des utilisateurs un service informatique", "Gérer le patrimoine informatique"],
     docTechnique: `<a href="docenpdf/ap2-comparatif.pdf" target="_blank" rel="noopener noreferrer">📄 Diaporama comparatif AP2 (PDF)</a>`,
     production: `<a href="https://le-bidul.e-monsite.com/" target="_blank" rel="noopener noreferrer">🌐 Consulter le site « Le Bidul » en ligne</a>`,
-    mode: "À confirmer — non précisé dans le document source"
+    mode: "Trinôme"
   },
   {
     titre: "Déploiement d'une solution e-learning (Moodle) sur serveur Ubuntu",
