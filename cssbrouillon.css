@@ -26,7 +26,7 @@ nav a.on{background:var(--ink);color:#fff}
 /* Accueil : fond en grille, comme un plan réseau */
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start;padding:24px 0;
   background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px;
-  background-color:transparent;-webkit-mask-image:none}
+}
 .hero h1{font-size:clamp(38px,6.4vw,72px);font-weight:800;letter-spacing:-.02em;background:var(--bg);display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 6px 0 0}
 .lead{max-width:56ch;margin:26px 0;color:var(--mute);background:var(--bg);display:inline-block;padding:4px 8px 4px 0}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin:0}
