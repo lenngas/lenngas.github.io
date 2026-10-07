@@ -69,6 +69,7 @@ nav a.on{background:var(--ink);color:#fff}
 .docs br{display:none}
 .docs a{display:inline-block;border:2px solid var(--blue);border-radius:var(--r);padding:8px 14px;font-weight:500;text-decoration:none;background:#fff}
 .docs a:hover{background:var(--blue);color:#fff}
+.cv-embed{width:100%;height:80vh;border:1px solid var(--line);border-radius:var(--r);margin-bottom:18px}
 .pager{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:18px;margin-top:8px}
 .pager a{font-weight:600}
 
